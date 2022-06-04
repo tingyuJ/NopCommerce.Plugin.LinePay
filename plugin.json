@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Payment methods",
+  "FriendlyName": "LinePay",
+  "SystemName": "Payments.LinePay",
+  "Version": "1.00",
+  "SupportedVersions": [ "4.50" ],
+  "Author": "Tingyu Jiang",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Payments.LinePay.dll",
+  "Description": "LinePay online API."
+}

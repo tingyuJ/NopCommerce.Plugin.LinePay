@@ -1,0 +1,56 @@
+﻿@using Nop.Plugin.Payments.LinePay.Models;
+@model Nop.Plugin.Payments.LinePay.Models.ConfigurationModel;
+@using Nop.Web.Framework.Models.DataTables
+@{
+    Layout = "_ConfigurePlugin";
+}
+
+@await Component.InvokeAsync("StoreScopeConfiguration")
+
+<form asp-controller="LinePayPlugin" asp-action="Configure" method="post">
+    <div class="cards-group">
+        <div class="card card-default">
+            <div class="card-body">
+                @Html.Raw(T("Plugins.Payments.LinePay.Instructions")) 
+                
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="ChannelId_OverrideForStore" asp-input="ChannelId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="ChannelId" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="ChannelId" />
+                        <span asp-validation-for="ChannelId"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="ChannelSecretKey_OverrideForStore" asp-input="ChannelSecretKey" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="ChannelSecretKey" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="ChannelSecretKey" />
+                        <span asp-validation-for="ChannelSecretKey"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="PictureId_OverrideForStore" asp-input="PictureId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="PictureId" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="PictureId" />
+                        <span asp-validation-for="PictureId"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" name="save" class="btn btn-primary">@T("Admin.Common.Save")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
